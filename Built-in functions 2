@@ -1,0 +1,64 @@
+USE university;
+show tables;
+DESC instructors;
+
+
+
+select*from instructors;
+select concat(name,"earns",salary) from instructors;
+select concat(name," earns ",salary) as "earns" from instructors;
+select name from instructors;
+select substr(name,5) as name from instructors;
+select substr(name,5,3) as name from instructors;
+
+
+
+select*from students;
+select UPPER(name),dob,gender from students;
+select LOWER(name),dob,gender from students;
+select name,dob,gender from students;
+select concat(substr(name,1,1),lower(substr(name,2))), dob,gender from students;
+select ("hello world") from students;
+select left("hello world",5) from students;
+select ltrim(" malayalam ");
+select lpad(salary,15,'*') from instructors;
+select rpad(salary,15,'*') from instructors;
+select lpad(rpad(salary,15,'*'),20,"*") from instructors;
+
+
+
+select*from students;
+select name,day(dob) from students;
+select name,year(dob) from students;
+select name,month(dob) from students;
+select name,hour(dob) from students;
+select name,dayname(dob) from students;
+select name,dayname(dob) from students where dayname(dob) ="sunday";
+select name,monthname(dob) from students where monthname(dob) ="january";
+select name,monthname(dob),dayname(dob) from students where monthname(dob) ="january";
+select name,monthname(dob),dayname(dob) from students where monthname(dob) ="january" or monthname(dob)="march";
+select name,monthname(dob),dayname(dob) from students where monthname(dob) in("january","march");
+
+
+
+select*from instructors;
+select deptid from instructors;
+select distinct deptid from instructors;
+select salary,case deptid when 3 then salary*1.30 when 6 then salary*1.40 when 9 then salary*1.50 else salary end as incsal, deptid from instructors;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
