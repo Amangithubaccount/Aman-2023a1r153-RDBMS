@@ -1,0 +1,32 @@
+CREATE DATABASE university2;
+use university2;
+
+create table course(
+course_id int,
+course_code varchar(100) primary key,
+course_name varchar(100),
+course_duration int,
+dept_name varchar(100)
+);
+
+INSERT INTO course VALUES(1,'COM-401','RDBMS','3','CSE');
+INSERT INTO course VALUES(2,'COm-402','Software','4','CSE');
+INSERT INTO course VALUES(3,'com-403','MDC','2','CSE');
+INSERT INTO course VALUES(4,'COM-  401','mdc','2','CSE');
+
+SELECT*FROM course;
+
+SELECT UPPER(course_name) FROM course;
+SELECT LOWER(course_name) FROM course;
+SELECT INITCAP('course_name') FROM course;
+
+SELECT LENGTH(course_name) FROM course;
+SELECT CONCAT(course_name,course_code) FROM course;
+
+SELECT LTRIM(course_name) FROM course;
+SELECT RTRIM(course_name) FROM course;
+SELECT REPLACE(course_name,'MDC','TOC') FROM course;
+
+
+
+
