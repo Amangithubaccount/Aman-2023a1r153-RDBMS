@@ -1,0 +1,49 @@
+CREATE DATABASE shop;
+USE shop;
+
+CREATE TABLE product(
+p_id int primary key,
+pname varchar(100),
+price float,
+catagory varchar(100),
+manufacturer varchar(100)
+
+);
+
+INSERT INTO product VALUES(1,'gizmo','19.99','gadgets','gizmo works');
+INSERT INTO product VALUES(2,'powergizmo','29.99','gadgets','gizmo works');
+INSERT INTO product VALUES(3,'single touch','14.99','photography','canon');
+INSERT INTO product VALUES(4,'multi touch','20.99','household','hitachi');
+
+DESCRIBE TABLE product;
+
+SELECT * FROM product;
+
+
+
+
+CREATE DATABASE bull;
+USE bull;
+
+CREATE TABLE product(
+p_id int primary key,
+pname varchar(100),
+price float,
+catagory varchar(100),
+manufacturer varchar(100)
+
+);
+
+INSERT INTO product VALUES(1,'gizmo','19.99','gadgets','gizmo works');
+INSERT INTO product VALUES(2,'powergizmo','29.99','gadgets','gizmo works');
+INSERT INTO product VALUES(3,'single touch','14.99','photography','canon');
+INSERT INTO product VALUES(4,'multi touch','20.99','household','hitachi');
+
+DESCRIBE TABLE product;
+
+SELECT * FROM product;
+
+ALTER TABLE product ADD(student_id int);
+ALTER TABLE product MODIFY pname varchar(200);
+
+SELECT * FROM product WHERE pname = 'gizmo';
