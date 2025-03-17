@@ -1,0 +1,76 @@
+create database EMS;
+show databases;
+use EMS;
+show tables;
+create table dept
+(did int, dname varchar(10), location varchar(10), primary key(did));
+
+create table emp
+(eid int,
+ name varchar(20) not null, 
+ email varchar(20) unique, 
+ gender char(1) check (gender in('m','f','M','F')), 
+ did int, primary key(eid), 
+ foreign key(did) references dept(did) on delete set null);
+ 
+ INSERT INTO dept VALUES
+ (10,'cse','noida'),
+ (20,'it','kolkata'),
+ (30,'ac','delhi');
+ 
+ select*from dept;
+ 
+ INSERT INTO emp VALUES
+ (104,'king','king@gmail.com','m',10);
+ 
+select*from emp;
+select*from dept;
+
+
+select*from emp,dept;
+select*from emp cross join dept;
+select*from emp,dept where emp.did=dept.did;
+select name, dname from emp,dept where emp.did=dept.did;
+select name, dname, dept.did from emp,dept where emp.did=dept.did;
+select name, dname, d.did from emp e,dept d where e.did=d.did;
+
+
+use university;
+show tables;
+select*from students;
+select*from students, departments;
+select name, dob, deptname from students join departments;
+select name, dob, deptname from students join departments on(students.deptid=departments.deptid);
+select name, dob, deptname,students.deptid from students join departments on(students.deptid=departments.deptid);
+select name, dob, deptname,departments.deptid from students join departments on(students.deptid=departments.deptid);
+
+select*from instructors;
+select name, deptname from instructors join departments;
+select name, deptname from instructors join departments on(instructors.deptid=departments.deptid);
+select name, deptname, instructors.deptid from instructors join departments on(instructors.deptid=departments.deptid);
+select name, deptname, departments.deptid from instructors join departments on(instructors.deptid=departments.deptid);
+
+
+
+use EMS;
+show tables;
+alter table emp
+add salary decimal(8,2);
+select*from emp;
+update emp set salary=1000 where eid=101;
+update emp set salary=11000 where eid=102;
+update emp set salary=21000 where eid=103;
+update emp set salary=31000 where eid=104;
+update emp set salary=41000 where eid=105;
+
+
+create table salgrade
+(minsal decimal(8,2),
+ maxsal decimal(8,2),
+ grade char(1)
+ );
+insert into salgrade values(1,10000,'D'),(10001,20000,'C'),(20001,30000,'B'),(30001,40000,'A');
+select*from salgrade;
+select*from emp;
+
+select name,grade from emp join salgrade where salary between minsal and maxsal;
